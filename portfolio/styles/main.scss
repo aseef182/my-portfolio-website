@@ -1,0 +1,14 @@
+// Import variables and mixins first
+@import 'variables';
+@import 'mixins';
+
+// Then base styles
+@import 'base';
+
+// Then component styles
+@import 'header';
+@import 'home';
+@import 'about';
+@import 'projects';
+@import 'contact';
+@import 'footer';

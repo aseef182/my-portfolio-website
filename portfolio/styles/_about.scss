@@ -1,0 +1,192 @@
+.about-section {
+    @include section-padding;
+    background-color: $bg-color;
+    border-top: 1px solid $border-color;
+
+    .about-content {
+        @include flex(column, center, flex-start);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-text {
+        width: 100%;
+
+        p {
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-lg;
+            color: $text-color;
+            line-height: 1.6;
+        }
+
+        h3 {
+            margin-top: $spacing-xl;
+            margin-bottom: $spacing-lg;
+            color: $secondary-color;
+            position: relative;
+            padding-left: $spacing-md;
+            font-size: 1.5rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 24px;
+                background-color: $primary-color;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    /* New Skills Grid Style - Replaces the skill bars */
+    .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-md;
+        margin-bottom: $spacing-xl;
+
+        .skill-tag {
+            background: linear-gradient(135deg, rgba($primary-color, 0.8), rgba($primary-color, 0.9));
+            color: white;
+            padding: $spacing-sm $spacing-lg;
+            border-radius: $border-radius-lg;
+            font-weight: $font-weight-bold;
+            box-shadow: 0 2px 5px rgba($primary-color, 0.2);
+            transition: $transition-base;
+
+            &:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 4px 8px rgba($primary-color, 0.3);
+            }
+        }
+    }
+
+    /* Updated Education Style */
+    .education-card {
+        background-color: $muted-color;
+        border-radius: $border-radius-lg;
+        padding: $spacing-lg;
+        margin-bottom: $spacing-xl;
+        @include box-shadow(1);
+        border-left: 4px solid $primary-color;
+        transition: $transition-base;
+
+        &:hover {
+            transform: translateX(5px);
+            @include box-shadow(2);
+        }
+
+        .education-header {
+            @include flex(row, flex-start, center);
+            margin-bottom: $spacing-md;
+            gap: $spacing-md;
+
+            i {
+                color: $primary-color;
+                font-size: 1.5rem;
+            }
+
+            h4 {
+                margin: 0;
+                color: $secondary-color;
+                font-size: 1.3rem;
+            }
+        }
+
+        .education-details {
+            padding-left: $spacing-xl;
+            border-left: 1px dashed rgba($primary-color, 0.3);
+
+            p {
+                margin-bottom: $spacing-sm;
+                font-size: $font-size-base;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                strong {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+
+    /* Updated Languages Style */
+    .languages-grid {
+        display: flex;
+        gap: $spacing-md;
+        margin-bottom: $spacing-xl;
+        flex-wrap: wrap;
+
+        .language-card {
+            background-color: white;
+            border-radius: $border-radius-lg;
+            padding: $spacing-md $spacing-lg;
+            @include box-shadow(1);
+            border: 1px solid $border-color;
+            transition: $transition-base;
+            @include flex(column, center, center);
+            min-width: 120px;
+            text-align: center;
+
+            &:hover {
+                transform: translateY(-3px);
+                @include box-shadow(2);
+            }
+
+            .language-name {
+                font-weight: $font-weight-bold;
+                margin-bottom: $spacing-xs;
+                color: $secondary-color;
+                font-size: 1.1rem;
+            }
+
+            .language-level {
+                color: $primary-color;
+                font-size: $font-size-sm;
+                font-style: italic;
+            }
+        }
+    }
+
+    /* Updated Interests Style */
+    .interests {
+        @include flex(row, flex-start, center);
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        margin-top: $spacing-lg;
+
+        .interest-tag {
+            background: linear-gradient(to right, rgba($primary-color, 0.1), rgba($primary-color, 0.2));
+            color: darken($primary-color, 10%);
+            padding: $spacing-xs $spacing-md;
+            border-radius: $border-radius-lg;
+            font-size: $font-size-base;
+            transition: $transition-base;
+            border: 1px solid rgba($primary-color, 0.1);
+
+            &:hover {
+                background: linear-gradient(to right, rgba($primary-color, 0.2), rgba($primary-color, 0.3));
+                transform: translateY(-2px) scale(1.05);
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            }
+        }
+    }
+
+    /* Media Queries for Responsiveness */
+    @include md {
+
+        .skills-grid,
+        .languages-grid {
+            justify-content: flex-start;
+        }
+
+        .education-card {
+            max-width: 90%;
+        }
+    }
+}

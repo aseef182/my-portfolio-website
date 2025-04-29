@@ -1,0 +1,152 @@
+.contact-section {
+    @include section-padding;
+    background-color: $bg-color;
+    color: $text-color;
+    border-top: 1px solid $border-color;
+
+    .section-title {
+        color: $secondary-color;
+
+        &::after {
+            background-color: $primary-color;
+        }
+    }
+
+    .contact-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .contact-card {
+        background-color: $light-color;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+        @include box-shadow(2);
+        border: 1px solid $border-color;
+        transition: $transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            @include box-shadow(3);
+        }
+
+        .contact-header {
+            background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
+            color: $light-color;
+            padding: $spacing-lg;
+            @include flex(row, flex-start, center);
+            gap: $spacing-md;
+
+            i {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                margin: 0;
+                color: $light-color;
+                font-size: 1.5rem;
+            }
+        }
+
+        .contact-details {
+            padding: $spacing-xl;
+
+            .contact-item {
+                @include flex(row, flex-start, center);
+                margin-bottom: $spacing-lg;
+                padding-bottom: $spacing-md;
+                border-bottom: 1px solid $border-color;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                i {
+                    font-size: 1.2rem;
+                    color: $primary-color;
+                    margin-right: $spacing-md;
+                    width: 24px;
+                    height: 24px;
+                    @include flex(row, center, center);
+                    background-color: rgba($primary-color, 0.1);
+                    border-radius: 50%;
+                    padding: $spacing-lg;
+                }
+
+                p,
+                a {
+                    color: $text-color;
+                    margin-bottom: 0;
+                    font-size: 1.1rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    transition: $transition-base;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        .social-links {
+            padding: $spacing-lg;
+            background-color: $muted-color;
+            @include flex(row, center, center);
+            gap: $spacing-lg;
+            flex-wrap: wrap;
+
+            a {
+                @include flex(row, center, center);
+                gap: $spacing-sm;
+                padding: $spacing-sm $spacing-lg;
+                border-radius: $border-radius;
+                background-color: $light-color;
+                color: $secondary-color;
+                transition: $transition-base;
+                text-decoration: none;
+                @include box-shadow(1);
+                border: 1px solid $border-color;
+
+                &:hover {
+                    background-color: $primary-color;
+                    color: $light-color;
+                    transform: translateY(-3px);
+                    @include box-shadow(2);
+
+                    i,
+                    span {
+                        color: $light-color;
+                    }
+                }
+
+                i {
+                    font-size: 1.2rem;
+                    color: $primary-color;
+                    transition: $transition-base;
+                }
+
+                span {
+                    font-weight: $font-weight-bold;
+                    font-size: $font-size-base;
+                }
+            }
+        }
+    }
+
+    /* Media Queries for Responsiveness */
+    @include sm {
+        .social-links {
+            justify-content: center;
+        }
+    }
+
+    @include md {
+        .contact-card {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    }
+}

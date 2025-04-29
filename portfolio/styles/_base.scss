@@ -1,0 +1,139 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: $font-family-sans;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $text-color;
+    background-color: $bg-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-family-heading;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+    color: $secondary-color;
+}
+
+p {
+    margin-bottom: $spacing-md;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+        color: darken($primary-color, 15%);
+    }
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    position: relative;
+    font-size: 2rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: $primary-color;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+// Utility classes
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.highlight {
+    color: $primary-color;
+}
+
+// Button styles
+.btn {
+    @include button-base;
+
+    &-primary {
+        background-color: $primary-color;
+        color: white;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            color: white;
+        }
+    }
+
+    &-secondary {
+        background-color: $secondary-color;
+        color: white;
+
+        &:hover {
+            background-color: darken($secondary-color, 10%);
+            color: white;
+        }
+    }
+
+    &-outline {
+        background-color: transparent;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+
+        &:hover {
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+
+    &-small {
+        padding: $spacing-xs $spacing-md;
+        font-size: $font-size-sm;
+    }
+}
